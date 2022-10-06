@@ -57,7 +57,7 @@ if args.build:
         build(MYIP, port_, args.output, False, None, icon)
     elif args.ip==None and args.port==None:
         build(MYIP, str(6969), args.output, False, None, icon)
-        print(stdOutput("using current network IP and on port: 6969"))
+        print("using current network IP and on port: 6969")
     else:
         print(stdOutput("error")+"\033[1mArguments Missing")
         
